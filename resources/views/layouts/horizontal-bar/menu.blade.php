@@ -7,11 +7,11 @@
                         <div>
                             <div>
                                 <label class="toggle" for="drop-2">
-                                    Starter Kits
+                                    Halaman Utama
                                 </label>
                                 <a href="#">
                                     <i class="nav-icon mr-2 i-Bar-Chart"></i>
-                                    Starter Kits
+                                    Halaman Utama
                                 </a>
                                 <input type="checkbox" id="drop-2">
                                 <ul>
@@ -30,19 +30,57 @@
                         <div>
                             <div>
                                 <label class="toggle" for="drop-2">
-                                    User Management
+                                    Pengurusan Pengguna
                                 </label>
                                 <a href="#">
                                     <i class="nav-icon mr-2 i-Bar-Chart"></i>
-                                    User Management
+                                    Pengurusan Pengguna
                                 </a>
                                 <input type="checkbox" id="drop-2">
                                 <ul>
-                                    <li class="nav-item ">
+                                    <li class="nav-item " style="width: 255px">
                                         <a class="{{ Route::currentRouteName() == 'users.index' ? 'open' : '' }}"
                                            href="{{ route('users.index') }}">
                                             <i class="nav-icon mr-2 i-Clock-3"></i>
-                                            <span class="item-name">List of users</span>
+                                            <span class="item-name">Senarai Pengguna</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item " style="width: 255px">
+                                        <a class="{{ Route::currentRouteName() == 'users.create' ? 'open' : '' }}"
+                                           href="{{ route('users.create') }}">
+                                            <i class="nav-icon mr-2 i-Clock-3"></i>
+                                            <span class="item-name">Daftar Baharu</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="{{ request()->is('vehicles/*') ? 'active' : '' }}">
+                        <div>
+                            <div>
+                                <label class="toggle" for="drop-2">
+                                    Pengurusan Jentera
+                                </label>
+                                <a href="#">
+                                    <i class="nav-icon mr-2 i-Bar-Chart"></i>
+                                    Pengurusan Jentera
+                                </a>
+                                <input type="checkbox" id="drop-2">
+                                <ul>
+                                    <li class="nav-item " style="width: 255px">
+                                        <a class="{{ Route::currentRouteName() == 'vehicles.index' ? 'open' : '' }}"
+                                           href="{{ route('vehicles.index') }}">
+                                            <i class="nav-icon mr-2 i-Clock-3"></i>
+                                            <span class="item-name">Senarai Jentera</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item" style="width: 255px">
+                                        <a class="{{ Route::currentRouteName() == 'data.service.upcoming' ? 'open' : '' }}"
+                                           href="{{ route('data.service.upcoming') }}">
+                                            <i class="nav-icon mr-2 i-Clock-3"></i>
+                                            <span class="item-name">Senarai Servis (Akan Datang)</span>
                                         </a>
                                     </li>
                                 </ul>

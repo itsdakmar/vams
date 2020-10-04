@@ -15,6 +15,7 @@
 asset('assets\fonts\iconsmind\iconsmind.css')}}">
     <link id="gull-theme" rel="stylesheet" href="{{  asset('assets/styles/css/themes/lite-purple.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/perfect-scrollbar.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
     {{-- page specific css --}}
     @yield('page-css')
 </head>
@@ -58,9 +59,6 @@ asset('assets\fonts\iconsmind\iconsmind.css')}}">
     </div>
     <!--=============== End app-admin-wrap ================-->
 
-    <!-- ============ Search UI Start ============= -->
-    @include('layouts.common.search')
-    <!-- ============ Search UI End ============= -->
 
     <!-- ============ Horizontal Layout End ============= -->
 
