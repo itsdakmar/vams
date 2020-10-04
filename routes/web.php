@@ -24,6 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/logout', [HomeController::class, 'logout'])->name('auth.logout');
 
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/', [HomeController::class, 'index']);
 
 //User Controller
     Route::get('/users/all', [UserController::class, 'getUsers'])->name('users.all');
