@@ -27,6 +27,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
+            'user' => 'required',
             'name' => 'required',
             'phone' => 'required|numeric|regex:/[0-9]{9}/',
             'email' => ['required', Rule::unique('users')->ignore($this->id)],

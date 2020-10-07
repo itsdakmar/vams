@@ -18,9 +18,33 @@
                     <form action="{{ route('users.store') }}" method="post">
                         @csrf
                         <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label for="radio" class="mr-2">Jenis Pengguna</label>
+
+                                <div class="form-inline">
+                                    <label class="radio radio-outline-primary mr-2">
+                                        <input type="radio" name="user" [value]="1" formcontrolname="radio">
+                                        <span>Admin</span>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio radio-outline-primary">
+                                        <input type="radio" name="user" [value]="0" formcontrolname="radio">
+                                        <span>Pengguna Biasa</span>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                @error('user')
+                                <div class="ul-form__text form-text text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 form-group mb-3">
+                            </div>
+
                             <div class="col-md-6 form-group mb-3">
                                 <label for="name">Nama Penuh</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                                       id="name"
                                        placeholder="Sila Masukkan Nama Penuh">
                                 @error('name')
                                 <div class="ul-form__text form-text text-danger">{{ $message }}</div>
@@ -31,7 +55,8 @@
 
                             <div class="col-md-6 form-group mb-3">
                                 <label for="position">Jawatan</label>
-                                <select id="position" name="position" class="form-control @error('position') is-invalid @enderror">
+                                <select id="position" name="position"
+                                        class="form-control @error('position') is-invalid @enderror">
                                     <option value="">Pilih Jawatan</option>
                                     @foreach($positions as $position)
                                         <option value="{{ $position->id }}">{{ $position->name }}</option>
@@ -45,7 +70,8 @@
                             <div class="col-md-6 form-group mb-3">
                                 <div id="balai" style="display: none">
                                     <label for="office">Balai</label>
-                                    <select id="office" name="office_id" class="form-control @error('office') is-invalid @enderror">
+                                    <select id="office" name="office_id"
+                                            class="form-control @error('office') is-invalid @enderror">
                                         <option value="">Pilih Balai</option>
                                         @foreach($offices as $office)
                                             <option value="{{ $office->id }}">{{ $office->name }}</option>
@@ -59,7 +85,8 @@
 
                             <div class="col-md-6 form-group mb-3">
                                 <label for="email">Email address</label>
-                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                                <input type="email" name="email"
+                                       class="form-control @error('email') is-invalid @enderror" id="email"
                                        placeholder="Masukkan Alamat emel">
                                 @error('email')
                                 <div class="ul-form__text form-text text-danger">{{ $message }}</div>

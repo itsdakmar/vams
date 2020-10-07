@@ -57,6 +57,10 @@ class UserController extends Controller
             'password' => Hash::make($password)
         ]);
 
+        if($request->user == 1){
+            $user->assignRole('Admin');
+        }
+
         Mail::to($user->email)->send(new WelcomeMail($user->name, $password));
 
         return redirect()->route('users.index')->with('status', 'Pengguna berjaya didaftarkan!');
