@@ -24,12 +24,12 @@
 
                                 <div class="form-inline">
                                     <label class="radio radio-outline-primary mr-2">
-                                        <input type="radio" name="user" [value]="1" formcontrolname="radio">
+                                        <input type="radio" name="user" value="1" formcontrolname="radio">
                                         <span>Admin</span>
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="radio radio-outline-primary">
-                                        <input type="radio" name="user" [value]="0" formcontrolname="radio">
+                                        <input type="radio" name="user" value="0" formcontrolname="radio">
                                         <span>Pengguna Biasa</span>
                                         <span class="checkmark"></span>
                                     </label>
