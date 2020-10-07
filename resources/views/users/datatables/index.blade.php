@@ -14,6 +14,19 @@
     <div class="separator-breadcrumb border-top"></div>
     <!-- end of row -->
 
+    @if (session('status'))
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-card alert-success" role="alert">
+                    <strong class="text-capitalize">Success!</strong> {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="row mb-4">
         <div class="offset-8 col-4">
             <a href="{{ route('users.create') }}" class="btn btn-primary float-lg-right mb-3">Daftar Baharu</a>
