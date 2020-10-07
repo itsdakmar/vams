@@ -56,7 +56,7 @@ class UserController extends Controller
             'office_id' => $request->get('office'),
             'password' => Hash::make($password)
         ]);
-        dd($request->all());
+
         if($request->user == 1){
             $user->assignRole('Admin');
         }
