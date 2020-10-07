@@ -15,15 +15,18 @@
 
     <section class="ul-product-detail__tab">
         <div class="row">
+            <div class="col-12">
+                <a href="{{ route('email.notify') }}" class="btn btn-primary mb-2"> Hantar Notifikasi<i class="nav-icon ml-2 i-Bell"></i></a>
+                <a href="{{ route('service.create') }}" class="btn btn-primary float-right mb-2"> Servis baharu<i class="nav-icon ml-2 i-Gear"></i></a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-12 col-md-12">
-
-
-
                 <div class="card">
                     <div class="card-body">
                         <div class="" id="nav-tabContent">
                             <select id='selVehicle' class="form-control">
-                                <option value='0'>-- Select No. Kenderaan --</option>
+                                <option value='0'>Pilih No. Kenderaan</option>
                             </select>
                             <!-- services-history  -->
                             <div class="tab-pane fade show active" id="list-home"
@@ -47,6 +50,7 @@
                                                 <th>Casis & Badan</th>
                                                 <th>Pam Jentera</th>
                                                 <th>Kos (RM)</th>
+                                                <th>Tindakan</th>
                                             </tr>
                                             </thead>
                                             <tbody></tbody>
@@ -63,6 +67,7 @@
                                                 <th>Casis & Badan</th>
                                                 <th>Pam Jentera</th>
                                                 <th>Kos (RM)</th>
+                                                <th>Tindakan</th>
                                             </tr>
                                             </tfoot>
                                         </table>
@@ -85,7 +90,7 @@
                 serverSide: true,
                 order: [[0, "desc"]],
                 ajax: {
-                    url: '{{ route('vehicles.service.upcoming') }}'
+                    url: '{{ route('data.service.upcoming') }}'
                 },
                 columns: [
                     {
@@ -132,6 +137,10 @@
                     {
                         data: 'kos',
                         name: 'kos',
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
                     }
                 ],
                 rowCallback: function (row, data, index) {
@@ -176,6 +185,8 @@
             });
 
         });
+
+
     </script>
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script src="{{asset('assets/js/vendor/datatables.min.js')}}"></script>

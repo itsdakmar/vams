@@ -33,7 +33,8 @@ background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, F
            <div class="row justify-content-end">
                <div class="col-lg-8 col-sm-12 col-xs-12 col-md-8 d-sm-none d-md-block d-none d-sm-block">
                    <div class="pt-4" style="position: absolute; top: 0; left: 0;">
-                       <h1 class="pb-5 display-5">Selamat Datang, <br>Vehicle Alert Management System</h1>
+                       <h1 class="">Selamat Datang,</h1>
+                       <h1 class="pb-5">Vehicle Alert Management System (VAMS)</h1>
                    <img src="{{ asset('assets/images/bg-3.png') }}" width="90%"  style="position: relative">
 
                    </div>

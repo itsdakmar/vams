@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Mail\NotificationMail;
+use App\Mail\NotificationDayBeforeMail;
 use App\Models\ServiceHistory;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -48,7 +48,7 @@ class NotifyJentera extends Command
             foreach ($notices as $notice){
 
                 Mail::to($notice->vehicle->office->users->pluck('email'))
-                    ->send(new NotificationMail($notice));
+                    ->send(new NotificationDayBeforeMail($notice));
             }
         }
     }

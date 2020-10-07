@@ -194,12 +194,21 @@ class VehicleController extends Controller
 
     public function serviceUpcoming()
     {
-        return view('vehicles.services');
+        return view('service.upcoming');
+    }
+
+
+    public function servicePostponed()
+    {
+        return view('service.postponed');
     }
 
     public function getServiceUpcoming()
     {
-        $data = ServiceHistory::with('vehicle')->where('tarikh', '>=', Carbon::now())->get();
+        $data = ServiceHistory::with('vehicle')
+            ->where('tarikh', '>=', Carbon::now())
+            ->where('status' ,'confirmation')
+            ->get();
 
         return DataTables::of($data)
             ->editColumn('tarikh', function ($datum) {
@@ -232,7 +241,55 @@ class VehicleController extends Controller
             ->editColumn('kos', function ($datum) {
                 return number_format($datum->kos, 2);
             })
-            ->rawColumns(['servis', 'enjin', 'brek', 'transmisi', 'steering', 'suspension', 'casis', 'pam_jentera'])
+            ->addColumn('action', function ($datum) {
+                return "<a title=\"Kemaskini\" href=". route('service.edit', $datum->id)."><i class=\"nav-icon i-Pen-2 text-success font-weight-bold mr-2\"></i></a>
+                        <a title=\"Hapus\" onclick='return confirm(\"Adakah anda pasti?\")'  href=".route('service.delete', $datum->id) ."><i class=\"nav-icon i-Delete-File text-danger font-weight-bold mr-2\"></i></a>";
+            })
+            ->rawColumns(['servis', 'enjin', 'brek', 'transmisi', 'steering', 'suspension', 'casis', 'pam_jentera','action'])
+            ->make(true);
+    }
+
+    public function getServicePostponed()
+    {
+        $data = ServiceHistory::with('vehicle')
+            ->where('status' ,'postponed')
+            ->get();
+
+        return DataTables::of($data)
+            ->editColumn('tarikh', function ($datum) {
+                return $datum->tarikh->timestamp;
+            })
+            ->editColumn('servis', function ($datum) {
+                return ($datum->servis !== NULL) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '';
+            })
+            ->editColumn('enjin', function ($datum) {
+                return ($datum->enjin !== NULL) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '';
+            })
+            ->editColumn('brek', function ($datum) {
+                return ($datum->brek !== NULL) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '';
+            })
+            ->editColumn('transmisi', function ($datum) {
+                return ($datum->transmisi !== NULL) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '';
+            })
+            ->editColumn('steering', function ($datum) {
+                return ($datum->steering !== NULL) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '';
+            })
+            ->editColumn('suspension', function ($datum) {
+                return ($datum->suspension !== NULL) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '';
+            })
+            ->editColumn('casis', function ($datum) {
+                return ($datum->casis !== NULL) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '';
+            })
+            ->editColumn('pam_jentera', function ($datum) {
+                return ($datum->pam_jentera !== NULL) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '';
+            })
+            ->editColumn('kos', function ($datum) {
+                return number_format($datum->kos, 2);
+            })
+            ->addColumn('action', function ($datum) {
+                return '<a title="Kemaskini" href="' . route('service.edit', $datum->id) . '"><i class="nav-icon i-Pen-2 text-success font-weight-bold mr-2"></i></a>';
+            })
+            ->rawColumns(['servis', 'enjin', 'brek', 'transmisi', 'steering', 'suspension', 'casis', 'pam_jentera','action'])
             ->make(true);
     }
 

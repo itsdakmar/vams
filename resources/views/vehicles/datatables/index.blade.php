@@ -14,7 +14,7 @@
     <!-- end of row -->
 
     <div class="row mb-4">
-        <div class="col-md-12 mb-4">
+        <div class="col-md-12">
             <div class="dropdown float-right">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -34,10 +34,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row justify-content-between mb-4">
-        <div class="col-2" style="margin-left: 15px;" id="sorting"></div>
-        <div class="col-2" style="margin-right: 15px;" id="filter"></div>
     </div>
     <div class="row">
         <div class="col-md-12 mb-4">
