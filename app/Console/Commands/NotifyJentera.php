@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Mail\NotificationDayBeforeMail;
+use App\Mail\NotifyKetuaBalaiMail;
 use App\Models\ServiceHistory;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -48,7 +49,27 @@ class NotifyJentera extends Command
         if($notices->count() > 0){
             foreach ($notices as $notice){
 
-                Mail::to($notice->vehicle->office->getUsersForNotify->pluck('email'))
+                Mail::to($notice->vehicle->office->getKetuaBalaiForNotify->pluck('email'))
+                    ->send(new NotifyKetuaBalaiMail($notice));
+
+                Mail::to($notice->vehicle->office->getPegawaiJenteraForNotify->pluck('email'))
+                    ->send(new NotificationDayBeforeMail($notice));
+
+                $this->configSms($notice);
+            }
+        }
+
+        $notices_2 = ServiceHistory::whereDate('tarikh', Carbon::today())
+            ->where('status', 'confirmation')
+            ->with('vehicle','vehicle.office.users')->get();
+
+        if($notices_2->count() > 0){
+            foreach ($notices_2 as $notice_2){
+
+                Mail::to($notice_2->vehicle->office->getKetuaBalaiForNotify->pluck('email'))
+                    ->send(new NotifyKetuaBalaiMail($notice));
+
+                Mail::to($notice_2->vehicle->office->getPegawaiJenteraForNotify->pluck('email'))
                     ->send(new NotificationDayBeforeMail($notice));
 
                 $this->configSms($notice);
