@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string $suspension
  * @property string $casis
  * @property string $pam_jentera
+ * @property string $lain_lain
+ * @property string $lain_remark
  * @property string $kos
  * @property string $created_at
  * @property string $updated_at
@@ -36,7 +38,7 @@ class ServiceHistory extends Model
     /**
      * @var array
      */
-    protected $fillable = ['vehicle_id', 'tarikh', 'status', 'servis', 'enjin', 'brek', 'transmisi', 'steering', 'suspension', 'casis', 'pam_jentera', 'kos', 'created_at', 'updated_at'];
+    protected $fillable = ['vehicle_id', 'tarikh', 'status', 'servis', 'enjin', 'brek', 'transmisi', 'steering', 'suspension', 'casis', 'pam_jentera', 'lain_lain', 'lain_remark', 'kos', 'created_at', 'updated_at'];
 
     protected $dates = ['tarikh'];
     /**

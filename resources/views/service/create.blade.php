@@ -67,18 +67,14 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-6 form-group mb-3">
-                                <label for="kos">Kos Penyelenggaraan</label>
-                                <input type="text" class="form-control @error('kos') is-invalid @enderror" name="kos" id="kos"
-                                       placeholder="Sila Masukkan Kos Penyelenggaraan">
-                                @error('kos')
-                                <div class="ul-form__text form-text text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-
-                            </div>
+{{--                            <div class="col-md-6 form-group mb-3">--}}
+{{--                                <label for="kos">Kos Penyelenggaraan</label>--}}
+{{--                                <input type="text" class="form-control @error('kos') is-invalid @enderror" name="kos" id="kos"--}}
+{{--                                       placeholder="Sila Masukkan Kos Penyelenggaraan">--}}
+{{--                                @error('kos')--}}
+{{--                                <div class="ul-form__text form-text text-danger">{{ $message }}</div>--}}
+{{--                                @enderror--}}
+{{--                            </div>--}}
 
                             <div class="col-md-6 form-group mb-3">
                                 <label for="selVehicle">Jenis Penyelenggaraan</label>
@@ -122,9 +118,25 @@
                                     <span>Pam Jentera</span>
                                     <span class="checkmark"></span>
                                 </label>
+                                <label class="checkbox checkbox-outline-primary">
+                                    <input name="service[lain_lain]" value="1" {{ (old('service.lain_lain') == 1) ? 'checked' : '' }} type="checkbox" >
+                                    <span>Lain - lain</span>
+                                    <span class="checkmark"></span>
+                                </label>
                                 @error('service')
                                 <div class="ul-form__text form-text text-danger">{{ $message }}</div>
                                 @enderror
+
+                            </div>
+                            <div class="col-md-12 form-group mb-3 pl-0">
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="lain_remark">Catatan Lain - lain</label>
+                                <input type="text" class="form-control @error('lain_remark') is-invalid @enderror" name="lain_remark" id="lain_remark"
+                                       placeholder="Sila Masukkan Catatan Lain - Lain">
+                                @error('lain_remark')
+                                <div class="ul-form__text form-text text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                             </div>
                             <div class="col-md-12">
                                 <button class="btn btn-primary" onclick="confirm('Adakah anda pasti?')">Hantar</button>

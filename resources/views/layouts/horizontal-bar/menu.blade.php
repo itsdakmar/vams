@@ -26,6 +26,7 @@
                             </div>
                         </div>
                     </li>
+                    @role('Admin')
                     <li class="{{ request()->is('users/*') ? 'active' : '' }}">
                         <div>
                             <div>
@@ -56,6 +57,7 @@
                             </div>
                         </div>
                     </li>
+                    @endrole
 
                     <li class="{{ request()->is('vehicles/*') ? 'active' : '' }}">
                         <div>
@@ -81,6 +83,7 @@
                         </div>
                     </li>
 
+                    @role('Admin')
                     <li class="{{ request()->is('vehicles/*') ? 'active' : '' }}">
                         <div>
                             <div>
@@ -111,6 +114,7 @@
                             </div>
                         </div>
                     </li>
+                    @endrole
                 </ul>
             </div>
         </div>

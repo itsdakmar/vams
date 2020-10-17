@@ -20,6 +20,7 @@ class JawatanSeeder extends Seeder
         Position::create(['name' => 'Ketua Zon 2']);
         Position::create(['name' => 'Ketua Balai']);
         Position::create(['name' => 'Pegawai Kenderaan']);
+        Position::create(['name' => 'Pegawai Pemantau']);
 
 
 

@@ -87,7 +87,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                            @if($service->status == 'waiting')
+                            @if($service->status == 'confirmation')
                                 <div class="form-group mt-4">
                                     <h6 class=" font-weight-700">Terima / Tangguh Tarikh :</h6>
                                     <a href="{{ route('service.confirmed', $service->id) }}"

@@ -51,4 +51,12 @@ class Office extends Model
     {
         return $this->hasMany('App\Models\Vehicle');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function getUsersForNotify()
+    {
+        return $this->hasMany('App\Models\User')->whereIn('position_id', [5,6]);
+    }
 }

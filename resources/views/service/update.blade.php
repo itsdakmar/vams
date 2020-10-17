@@ -76,8 +76,17 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-6 mb-3">
-
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="kos">Status Penyelenggaraan</label>
+                                <select class="form-control" name="status">
+                                    <option value="confirmation">Menunggu</option>
+                                    <option value="confirmed">Telah Mengesahkan Tarikh</option>
+                                    <option value="postponed">Tangguh</option>
+                                    <option value="resolved">Selesai</option>
+                                </select>
+                                @error('status')
+                                <div class="ul-form__text form-text text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="col-md-6 form-group mb-3">

@@ -53,6 +53,7 @@ class ServiceController extends Controller
             'status' => 'confirmation',
             'vehicle_id' => Vehicle::where('no_kenderaan',trim($request->no_kenderaan))->pluck('id')->first(),
             'tarikh' => Carbon::parse($request->tarikh),
+            'lain_remark' => $request->lain_remark,
         ];
 
         $arr2 = array_merge($arr, $request->service);

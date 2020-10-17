@@ -53,7 +53,7 @@ class UserController extends Controller
             'position_id' => ($request->has('position')) ? $request->get('position') : NULL,
             'phone' => $request->get('phone'),
             'email' => $request->get('email'),
-            'office_id' => $request->get('office'),
+            'office_id' => $request->get('office_id'),
             'password' => Hash::make($password)
         ]);
 

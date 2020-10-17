@@ -17,9 +17,9 @@ class HomeController extends Controller
         $vehicle = Vehicle::all()->count();
         $service = ServiceHistory::all();
         $service_total = $service->count();
-        $service_cost = 'RM'. $service->sum('kos');
+        $service_cost = 'RM' . $service->sum('kos');
 
-        return view('dashboard' , compact('user','vehicle','service_total','service_cost'));
+        return view('dashboard', compact('user', 'vehicle', 'service_total', 'service_cost'));
     }
 
     public function logout()

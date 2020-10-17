@@ -128,7 +128,7 @@
     <script>
         $(function () {
             $('#position').on('change', function () {
-                ($(this).val() == 5) ? $('#balai').show() : $('#balai').hide();
+                ($(this).val() == 5 || $(this).val() == 6) ? $('#balai').show() : $('#balai').hide();
             });
         });
     </script>
