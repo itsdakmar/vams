@@ -57,7 +57,7 @@ class Office extends Model
      */
     public function getUsersForNotify()
     {
-        return $this->hasMany('App\Models\User')->whereIn('position_id', [5,6]);
+        return $this->hasMany('App\Models\User')->whereIn('position_id', [5,6,7]);
     }
 
     public function getKetuaBalaiForNotify()

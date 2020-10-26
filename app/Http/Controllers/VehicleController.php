@@ -138,7 +138,7 @@ class VehicleController extends Controller
     public function excelUpload(Request $request)
     {
         Excel::import(new VehicleImport(), $request->file('vehicles'));
-        return redirect()->route('vehicles.index')->with('status', 'Muat Naik Maklumat Premis Berjaya!');
+        return redirect()->route('vehicles.index')->with('status', 'Muat Naik Maklumat Jentera Berjaya!');
     }
 
     public function service()
