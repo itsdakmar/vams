@@ -67,6 +67,6 @@ class Office extends Model
 
     public function getPegawaiJenteraForNotify()
     {
-        return $this->hasMany('App\Models\User')->whereIn('position_id', 6);
+        return $this->hasMany('App\Models\User')->whereIn('position_id', [6]);
     }
 }
