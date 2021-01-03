@@ -30,7 +30,7 @@ class VehicleRequest extends FormRequest
             'no_casis' => 'required',
             'tarikh_pendaftaran' => 'required',
             'tarikh_perolehan' => 'required',
-            'no_kenderaan' => 'required|unique',
+            'no_kenderaan' => 'required|unique:vehicles',
             'model' => 'required',
             'jenis' => 'required',
             'no_fail' => 'required'
