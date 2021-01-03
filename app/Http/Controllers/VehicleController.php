@@ -42,11 +42,12 @@ class VehicleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(VehicleRequest $request)
     {
-
+        Vehicle::create($request->all());
+        return redirect()->route('vehicles.index')->with('status', 'Pendaftaran Jentera Baharu Berjaya!');
     }
 
     /**

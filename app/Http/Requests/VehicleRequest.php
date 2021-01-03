@@ -24,7 +24,7 @@ class VehicleRequest extends FormRequest
     public function rules()
     {
         return [
-            'office' => 'required',
+            'office_id' => 'required',
             'no_siri_b' => 'required',
             'no_enjin' => 'required',
             'no_casis' => 'required',

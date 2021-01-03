@@ -43,6 +43,7 @@ class NotifyJentera extends Command
      */
     public function handle()
     {
+        //Notice day before
         $notices = ServiceHistory::whereDate('tarikh', Carbon::today()->addDay())
             ->with('vehicle','vehicle.office.users')->get();
 
@@ -67,12 +68,12 @@ class NotifyJentera extends Command
             foreach ($notices_2 as $notice_2){
 
                 Mail::to($notice_2->vehicle->office->getKetuaBalaiForNotify->pluck('email'))
-                    ->send(new NotifyKetuaBalaiMail($notice));
+                    ->send(new NotifyKetuaBalaiMail($notice_2));
 
                 Mail::to($notice_2->vehicle->office->getPegawaiJenteraForNotify->pluck('email'))
-                    ->send(new NotificationDayBeforeMail($notice));
+                    ->send(new NotificationDayBeforeMail($notice_2));
 
-                $this->configSms($notice);
+                $this->configSms($notice_2);
             }
         }
     }
@@ -82,7 +83,8 @@ class NotifyJentera extends Command
         $no_kenderaan = $notice->vehicle->no_kenderaan;
         $tarikh = $notice->tarikh->format('d/m/Y');
 
-        $destination = urlencode($phones);
+//        $destination = urlencode($phones);
+        $destination = urlencode('0126360644;0179743007');
         $message = "Perhatian!, Jentera untuk $no_kenderaan perlu di selenggara pada tarikh $tarikh. Sekian Terima Kasih, Vehicle Alert Management System. JBPM Melaka";
         $message = html_entity_decode($message, ENT_QUOTES, 'utf-8');
         $message = urlencode($message);
