@@ -36,7 +36,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="card-title mb-3">Maklumat Jentera</div>
-                    <form action="{{ route('vehicles.store') }}" method="post">
+                    <form action="{{ route('vehicles.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
 
@@ -146,6 +146,18 @@
                                 <div class="ul-form__text form-text text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <div class="col-md-6 form-group mb-3">
+                                <label for="picker-pendaftaran">Muat Naik Gambar</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="image" class="custom-file-input @error('image') is-invalid @enderror" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Pilih Fail</label>
+                                     </div>
+                                @error('image')
+                                <div class="ul-form__text form-text text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="col-md-12">
                                 <button class="btn btn-primary">Hantar</button>
                             </div>
@@ -164,6 +176,11 @@
 
 @section('bottom-js')
     <script>
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+
         $(function () {
             $('#position').on('change', function () {
                 ($(this).val() == 5) ? $('#balai').show() : $('#balai').hide();

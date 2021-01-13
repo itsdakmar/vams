@@ -33,7 +33,7 @@ class Vehicle extends Model
     /**
      * @var array
      */
-    protected $fillable = ['office_id', 'no_siri_b', 'no_enjin', 'no_casis', 'tarikh_pendaftaran', 'tarikh_perolehan', 'no_kenderaan', 'model', 'jenis', 'no_fail', 'created_at', 'updated_at'];
+    protected $fillable = ['office_id', 'no_siri_b', 'no_enjin', 'no_casis', 'tarikh_pendaftaran', 'tarikh_perolehan', 'no_kenderaan', 'model', 'jenis', 'no_fail', 'created_at', 'updated_at', 'image'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

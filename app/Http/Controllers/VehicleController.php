@@ -44,9 +44,13 @@ class VehicleController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(VehicleRequest $request)
-    {
-        Vehicle::create($request->all());
+    public function store(VehicleRequest $request) {
+
+        $file = $request->file('image');
+        $destinationPath = 'uploads';
+        $file->move($destinationPath,$file->getClientOriginalName());
+    
+        Vehicle::create($request->merge(['image' => $file->getClientOriginalName()])->all());
         return redirect()->route('vehicles.index')->with('status', 'Pendaftaran Jentera Baharu Berjaya!');
     }
 

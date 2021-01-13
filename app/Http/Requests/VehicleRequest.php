@@ -33,7 +33,8 @@ class VehicleRequest extends FormRequest
             'no_kenderaan' => 'required|unique:vehicles',
             'model' => 'required',
             'jenis' => 'required',
-            'no_fail' => 'required'
+            'no_fail' => 'required',
+            'image' => 'required'
         ];
     }
 
